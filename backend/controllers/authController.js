@@ -28,11 +28,6 @@ exports.login = async (req, res) => {
           password: hashedPassword,
         });
         
-        // Set appropriate headers
-        res.set({
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Allow-Origin': 'http://localhost:5173'
-        });
         
         return res.json({
           _id: newUser._id,
@@ -49,12 +44,6 @@ exports.login = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-
-    // Set appropriate headers
-    res.set({
-      'Access-Control-Allow-Credentials': true,
-      'Access-Control-Allow-Origin': 'http://localhost:5173'
-    });
 
     res.json({
       _id: user._id,
