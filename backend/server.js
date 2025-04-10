@@ -12,11 +12,9 @@ connectDB();
 const app = express();
 
 // Add this before your route definitions
-app.options('*', cors({
-  origin: 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+app.use(cors({
+  origin: true, // Reflects the request origin
+  credentials: true
 }));
 
 // Middleware
