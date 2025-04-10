@@ -11,7 +11,7 @@ const generateToken = (id) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     // Input validation
     if (!email || !password) {
       return res.status(400).json({ message: 'Please provide email and password' });
@@ -27,20 +27,21 @@ exports.login = async (req, res) => {
           email,
           password: hashedPassword,
         });
-        
+
         // Set appropriate headers
+        // Remove these lines from authController.js
         res.set({
           'Access-Control-Allow-Credentials': true,
           'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app'
         });
-        
+
         return res.json({
           _id: newUser._id,
           email: newUser.email,
           token: generateToken(newUser._id),
         });
       }
-      
+
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
@@ -50,7 +51,7 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Set appropriate headers
+    // Remove these lines from authController.js
     res.set({
       'Access-Control-Allow-Credentials': true,
       'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app'
@@ -71,26 +72,26 @@ exports.login = async (req, res) => {
 exports.seedUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     // Check if the credentials match the default values
     if (email !== 'intern@dacoid.com' || password !== 'Test123') {
       return res.status(400).json({ message: 'Invalid credentials for seeding' });
     }
 
     const userExists = await User.findOne({ email });
-    
+
     if (!userExists) {
       const hashedPassword = await bcrypt.hash(password, 10);
-      
+
       const newUser = await User.create({
         email,
         password: hashedPassword,
       });
-      
+
       console.log('Seeded user:', { email: newUser.email });
       return res.json({ message: 'User seeded successfully' });
     }
-    
+
     res.json({ message: 'User already exists' });
   } catch (error) {
     console.error('Seed user error:', error);
