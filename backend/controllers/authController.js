@@ -31,7 +31,7 @@ exports.login = async (req, res) => {
         // Set appropriate headers
         res.set({
           'Access-Control-Allow-Credentials': true,
-          'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app/'
+          'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app'
         });
         
         return res.json({
@@ -53,7 +53,7 @@ exports.login = async (req, res) => {
     // Set appropriate headers
     res.set({
       'Access-Control-Allow-Credentials': true,
-      'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app/'
+      'Access-Control-Allow-Origin': 'https://sdeintern-dwb9sez5y-sovankandars-projects.vercel.app'
     });
 
     res.json({
