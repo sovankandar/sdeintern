@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+    color-scheme: light;
+  }
+  
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+  
+  /* Make sure dark mode styles are applied */
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+  
+  /* Add these base styles for dark mode */
+  @layer base {
+    [data-theme="dark"] body {
+      @apply bg-gray-900 text-white;
+    }
+  
+    [data-theme="dark"] .bg-white {
+      @apply bg-gray-800;
+    }
+  
+    [data-theme="dark"] .text-gray-800 {
+      @apply text-white;
+    }
+  
+    [data-theme="dark"] .text-gray-600 {
+      @apply text-gray-300;
+    }
+  
+    [data-theme="dark"] .border-gray-100 {
+      @apply border-gray-700;
+    }
+  }
+  
