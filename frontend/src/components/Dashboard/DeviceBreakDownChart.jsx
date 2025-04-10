@@ -65,7 +65,7 @@ const DeviceBreakdownChart = ({ linkId }) => {
         setIsLoading(true)
         const token = localStorage.getItem("token")
 
-        const response = await fetch(`http://localhost:5000/api/analytics/${linkId}`, {
+        const response = await fetch(`https://sdeintern-vxir.vercel.app/api/analytics/${linkId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

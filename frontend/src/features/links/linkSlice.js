@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://sdeintern-vxir.vercel.app/api';
 
 export const fetchLinks = createAsyncThunk(
   'links/fetchLinks',

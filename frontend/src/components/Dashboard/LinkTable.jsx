@@ -29,7 +29,7 @@ const LinkTable = ({ links, loading }) => {
     e.preventDefault()
     try {
       // Track click before redirecting
-      await axios.post(`http://localhost:5000/api/links/${link.shortUrl}/click`, {
+      await axios.post(`https://sdeintern-vxir.vercel.app/api/links/${link.shortUrl}/click`, {
         deviceType: navigator.userAgent,
         timestamp: new Date(),
       })
